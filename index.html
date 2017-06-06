@@ -9,13 +9,16 @@
 	<!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
 </head>
 <body>
-<h1>The Psychic Game</h1>
 
-<p>Guess what letter I'm thinking of</p>
-<p>Wins: </p>
-<p>Losses: </p>
-<p>Guesses Left: </p>
-<p>Your Guesses so Far: </p>
+<div id="game">
+    <h1>The Psychic Game</h1>
+
+    <p>Guess what letter I'm thinking of</p>
+    <p>Wins: </p>
+    <p>Losses: </p>
+    <p>Guesses Left: </p>
+    <p>Your Guesses so Far: </p>
+</div>
 
 <script>
 
@@ -28,7 +31,7 @@ var losses = 0;
 
 var turns = 9;
 
-var guesses = "";
+var pastGuesses = [];
 
 //Process
 
@@ -36,19 +39,30 @@ document.onkeyup = function(event) {
     var userGuess = event.key;
     var computerGuess = letter[Math.floor(Math.random() * letter.length)];
 
-    for (var i = 0; i < letter.length; i++) {
-
        if (userGuess === computerGuess) {
-        wins++;
+           wins++;
         }
 
        else if (userGuess !== computerGuess) {
-        losses++;
-        turns--;
+            losses++;
+            turns--;
         }
-    }
 
-    //document.getElementByID(guesses).innerHTML = userGuess;
+        pastGuesses.push(" userGuess");
+        //function guessBank() {
+          //  console.log(userGuess);
+           /* document.getElementById(pastGuesses).innerHTML = "";
+            return pastGuesses;*/
+        
+
+        var html = "<p>Guess what letter I'm thinking of</p>" + "<p>Wins: " + wins + "</p>" + "<p>Losses: " + losses + "</p>" + "<p>Guesses Left: " + turns + "</p>" + "<p>Your Guesses so Far: " + pastGuesses + "</p>";
+
+        document.querySelector("#game").innerHTML = html;
+
+    //for (var i = 0; i < letter.length; i++) {
+    //}
+
+    //document.getElementByID(pastGuesses).innerHTML = userGuess;
     
 };
 </script>
