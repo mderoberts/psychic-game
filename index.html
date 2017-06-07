@@ -5,8 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Psychic Game</title>
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-	<!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+    <script src="assets/javascript/game.js"></script>
 </head>
 <body>
 
@@ -20,52 +19,17 @@
     <p>Your Guesses so Far: </p>
 </div>
 
-<script>
-
-//Variables
-var letter = ["A", "B", "C", "D", "E", "F", "G", "H", "I","J", "K", "L", "M", "N", "O","P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-
-var wins = 0;
-
-var losses = 0;
-
-var turns = 9;
-
-var pastGuesses = [];
-
-//Process
-
-document.onkeyup = function(event) {
-    var userGuess = event.key;
-    var computerGuess = letter[Math.floor(Math.random() * letter.length)];
-
-       if (userGuess === computerGuess) {
-           wins++;
-        }
-
-       else if (userGuess !== computerGuess) {
-            losses++;
-            turns--;
-        }
-
-        pastGuesses.push(" userGuess");
-        //function guessBank() {
-          //  console.log(userGuess);
-           /* document.getElementById(pastGuesses).innerHTML = "";
-            return pastGuesses;*/
-        
-
-        var html = "<p>Guess what letter I'm thinking of</p>" + "<p>Wins: " + wins + "</p>" + "<p>Losses: " + losses + "</p>" + "<p>Guesses Left: " + turns + "</p>" + "<p>Your Guesses so Far: " + pastGuesses + "</p>";
-
-        document.querySelector("#game").innerHTML = html;
-
-    //for (var i = 0; i < letter.length; i++) {
-    //}
-
-    //document.getElementByID(pastGuesses).innerHTML = userGuess;
-    
-};
-</script>
-
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
